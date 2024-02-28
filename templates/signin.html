@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/signin.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer">
+        <h2 class="heading">Signup Form</h2>
+        <form action="" method="POST">
+            <div class="container">
+                <label for="Email" class="textbox">Email</label>
+                <input type="text" placeholder="tharun@gmail.com" name="Email" required>
+
+                <label for="Password" class="textbox">Password</label>
+                <input type="password" name="Password" placeholder="password" required>
+
+                <label for="Phone" class="textbox">Phone</label>
+                <input type="tel" name="Phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+
+                <button class="submit_button">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

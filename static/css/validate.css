@@ -1,0 +1,54 @@
+body{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h3{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    
+}
+
+.box{
+    padding: 20px 0 20px 0;
+    
+}
+.submit_btn{
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+}
+
+input[type=text], input[type=password], input[type=tel] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 30px 0;
+    display: inline-block;
+    border: 2px solid #ffffff;
+    font-size:20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+.heading{
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

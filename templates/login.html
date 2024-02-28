@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer">
+        <h2 class="heading">Login Form</h2>
+        <form action="" method="POST">
+            <div class="container">
+                <label for="Email" class="textbox">Email</label>
+                <input type="text" placeholder="tharun@gmail.com" name="Email" required>
+
+                <label for="Password" class="textbox">Password</label>
+                <input type="password" name="Password" placeholder="password" required>
+
+                <button class="submit_button">Submit</button>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <span class="psw">Forgot <a href="#" style="color: red;">password?</a></span>
+                
+              </div>
+        </form>
+    </div>
+</body>
+</html>

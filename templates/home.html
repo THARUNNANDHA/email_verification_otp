@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="heading">
+        <h1>Welcome To My Website  This is My wallpaper collection feel free to  </h1>
+        <h3>This is My wallpaper collection feel free to Downlode Have a good day just click on the image to downlode</h3>
+    </div>
+    <div id="image-gallery">
+        {% for image_file in image_files %}
+            <img src="{{ url_for('get_image', filename=image_file) }}" alt="Image">
+        {% endfor %}
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="heading">
+        <h1>Welcome To My Website  This is My wallpaper collection feel free to  </h1>
+        <h3>This is My wallpaper collection feel free to Download Have a good day just click on the image to download</h3>
+    </div>
+    <div id="image-gallery">
+        {% for image_file in image_files %}
+            
+            <a href="{{ url_for('get_image', filename=image_file) }}" download>
+                <img src="{{ url_for('get_image', filename=image_file) }}" alt="Image">
+            </a>
+        {% endfor %}
+    </div>
+</body>
+</html>
