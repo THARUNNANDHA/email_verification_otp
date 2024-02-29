@@ -37,7 +37,7 @@ def login():
         email=request.form['Email']
         psw=request.form['Password']
         existingdata=userdetails.query.filter_by(name=email).first()
-
+        print("\n\n\n\n\n\n\n\n",existingdata)
         if existingdata:
 
             if (existingdata.password == psw and existingdata.verified == True):
@@ -87,25 +87,64 @@ def signin():
     return render_template('signin.html')
 
 
-@app.route("/validate", methods=["GET","POST"])
+# @app.route("/validate", methods=["GET","POST"])
+# def validate():
+#     if request.method == 'POST':
+#         otp=request.form['otp']
+#         email=request.args.get('email')
+         
+#         print("\n\n\n\n\n\nemail",email)
+#         print("\n\n\n\n\n\notp",otp)
+#         e_mail=str(email)
+#         print("\n\n\n\nemail", e_mail)
+
+#         user=userdetails.query.filter_by(name=e_mail).first()
+#         if user:
+#             oooot=int(otp)
+#             database_otp=int(user.otp)
+#         else:
+#             print("\n\n\n\n\n\n\n\nuser dose not exsit in database")
+
+        
+#         print("\n\n\n\nOTP",otp,email)
+#         if(database_otp == oooot):
+#             user.verified=True
+#             db.session.commit()
+#             return redirect(url_for('home'))
+#         else:
+#             return "wrong otp"
+        
+#     return render_template('login.html')
+
+
+@app.route("/validate", methods=["GET", "POST"])
 def validate():
     if request.method == 'POST':
-        otp=request.form['otp']
-        email=request.args.get('email')
+        otp = request.form['otp']
+        email = request.args.get('email')
+         
+        print("\nEmail:", email)
+        print("OTP:", otp)
 
-        user=userdetails.query.filter_by(name=email).first()
-        oooot=int(otp)
-        database_otp=int(user.otp)
+        e_mail = str(email)
+        print("Formatted Email:", e_mail)
 
-        print("\n\n\n\nOTP",otp,email)
-        if(database_otp == oooot):
-            user.verified=True
-            db.session.commit()
-            return redirect(url_for('home'))
+        user = userdetails.query.filter_by(name=e_mail).first()
+        if user:
+            database_otp = int(user.otp)
+            entered_otp = int(otp)
+            if database_otp == entered_otp:
+                user.verified = True
+                db.session.commit()
+                return redirect(url_for('home'))
+            else:
+                return "Wrong OTP"
         else:
-            return "wrong otp"
-        
+            print("User does not exist in the database")
+            return "Invalid email address or user does not exist"
+
     return render_template('login.html')
+
 
 IMAGE_DIRECTORY = 'wall'
 
@@ -133,4 +172,5 @@ def delete_database():
 if __name__=='__main__':
     with app.app_context():
         db.create_all()
-        app.run(debug=True)
+        # app.run(debug=True)
+        app.run(host='0.0.0.0',debug=True)

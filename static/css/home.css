@@ -1,43 +1,42 @@
-h1{
-    font-size: 30px;
+  
+h1 {
+    font-size: 30px; /* Adjust the font size as needed for mobile */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bolder;
-    color: white;
-    overflow: hidden;
+    color:#0000ff;
     text-align: center;   
+    word-wrap: break-word; /* Ensures that long words wrap within the container */
 }
+
 h3{
-    font-size: 20px;
+    font-size: 20px; /* Adjust the font size as needed for mobile */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bolder;
-    color: white;
-    overflow: hidden;
+    color: #0000ff;
     text-align: center;   
-
+    word-wrap: break-word;
 }
 
 body{
     display: flex;
     background-color: black;
+    flex-direction: column;
     
 }
-.heading{
-    width: 400px;
-    height: 100%;
+.heading {
+    background: rgba(255, 255, 255, 0.7);
+    height: auto; /* Adjusted to allow for dynamic content */
     border: 2px solid white;
     align-items: center;
     justify-content: center;
-    display: flex;
-    overflow:hidden;
-    position: fixed;
-    top: 0; 
-    left: 0;
-    z-index: 1000;
-    flex-direction: column;
+    padding: 10px; /* Added padding for spacing */
+    text-align: center; /* Center align text within .heading */
 }
+    
+    
 
 #image-gallery {
-    margin-left: 420px;
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 20px;
@@ -47,4 +46,20 @@ body{
 #image-gallery img {
     width: 100%;
     height: auto;
+}
+
+@media screen and (max-width: 767px) {
+    /* Adjustments for smaller screens (phones) */
+    h1 {
+        font-size: 20px; /* Decreased font size for smaller screens */
+    }
+    h3 {
+        font-size: 16px; /* Decreased font size for smaller screens */
+    }
+    .heading {
+        height: auto; /* Allow for dynamic content */
+    }
+    #image-gallery {
+        margin-top: 10px; /* Adjusted for spacing */
+    }
 }
