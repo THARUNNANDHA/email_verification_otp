@@ -2,6 +2,10 @@
 
 This project is designed to provide email verification using a one-time password (OTP). It utilizes Flask for web development, Flask-Mail for sending emails, and Flask-SQLAlchemy for managing the database. The OTP is randomly generated and sent to the user's email address for verification.
 
+## You can access the website at
+
+http://ntharun007.pythonanywhere.com/
+
 ## Dependencies
 
 - Flask
