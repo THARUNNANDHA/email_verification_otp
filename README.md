@@ -21,7 +21,7 @@ This project is designed to provide email verification using a one-time password
 1. Clone the repository:
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/THARUNNANDHA/email_verification_otp.git
    ```
 
 2. Install dependencies:
