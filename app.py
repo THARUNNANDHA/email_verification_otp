@@ -3,6 +3,7 @@ from flask_mail import Mail,Message
 from flask_sqlalchemy import SQLAlchemy
 import random 
 import os
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app=Flask(__name__)
