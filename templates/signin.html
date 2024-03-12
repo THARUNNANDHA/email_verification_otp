@@ -10,7 +10,13 @@
     <div class="outer">
         <h2 class="heading">Signup Form</h2>
         <form action="" method="POST">
+            
             <div class="container">
+                {%if error%}
+                    <div class="error">
+                        <h3>{{error}}</h3>
+                    </div>
+                {%endif %}
                 <label for="Email" class="textbox">Email</label>
                 <input type="text" placeholder="tharun@gmail.com" name="Email" required>
 
@@ -21,6 +27,7 @@
                 <input type="tel" name="Phone" pattern="[0-9]{10}" placeholder="1234567890" required>
 
                 <button class="submit_button">Submit</button>
+
             </div>
         </form>
     </div>

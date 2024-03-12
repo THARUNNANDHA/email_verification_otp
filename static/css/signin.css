@@ -65,7 +65,7 @@ span.psw {
 
 .outer{
     width: 500px;
-    height: 550px;
+    height: 575px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     margin-top: 5%;
@@ -77,4 +77,13 @@ span.psw {
   span.psw {
      display: block;
      float: none;}
+}
+.error{
+  height: 25px;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  margin-bottom: 7px;
+  
 }

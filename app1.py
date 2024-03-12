@@ -44,7 +44,7 @@ def login():
             if (check_password_hash(existingdata.password, psw) and existingdata.verified == True):
                 return redirect(url_for('home'))
             else:
-                return "wrong password"
+                return render_template('login.html',error="Wrong password")
         else:
                 return redirect(url_for('signin'))
         
@@ -57,8 +57,8 @@ def login():
 def signin():
     if request.method == 'POST':
         email = request.form['Email']
-        psw = request.form['Password']
-        password=generate_password_hash(psw)
+        # password=generate_password_hash(psw)
+        password=generate_password_hash(request.form['Password'])
         phone = request.form['Phone']
         existingdata = userdetails.query.filter_by(name=email).first()
 
@@ -85,7 +85,34 @@ def signin():
             mail.send(msg)
 
             return render_template('validate.html', email=email)
+        
+        elif(existingdata.verified == False):
+            otp = generate_verification_code()
+            existingdata.otp=otp
+            existingdata.phone=phone
+            existingdata.password=password
+            db.session.commit()
 
+            subject = "Welcome to Our Tharun's Platform"
+            body = f"""
+            <html>
+              <body>
+                <h1 style="color: #007bff;">Welcome to Tharun validation website!</h1>
+                <p style="font-size: 18px;">Your verification code is: <strong>{otp}</strong></p>
+                <p style="font-size: 16px; color: #6c757d;">Thank you for signing up!</p>
+              </body>
+            </html>
+            """
+            sender = "ntharun832jacky@gmail.com"
+
+            msg = Message(subject, sender=sender, recipients=[email])
+            msg.html = body
+            mail.send(msg)
+
+            return render_template('validate.html', email=email)
+
+        else:
+            return render_template('signin.html',error="Already exist try Login")
     return render_template('signin.html')
 
 
@@ -170,6 +197,16 @@ def delete_database():
     db.session.query(userdetails).delete()
     db.session.commit()
     return render_template('login.html')
+
+@app.route("/change_password")
+def change_password():
+    email=request.args.get('email')
+    existing_data=userdetails.query.filter_by(name=email).first()
+    if existing_data:
+        otp=generate_verification_code()
+        existing_data.otp=otp
+        
+
 
 if __name__=='__main__':
     with app.app_context():
